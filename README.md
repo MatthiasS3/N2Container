@@ -63,9 +63,20 @@ This commands opens the dashboard and lets you check the status of the services.
 ```
 kubectl get pods
 ```
+It should return something like this:
+(getpods.png)
 
-- Docker Edge (Kubernetes enabled)![docker-kub](getpods.png)
+The following commands will enable you to call the services. Please notice that you will get different numbers after the names, so copy your own names.
+```
+kubectl port-forward vinnsl-nn-ui-deploy-6584cf995-xpmtr 80:8083
+kubectl port-forward vinnsl-service-759d4587bb-mpb4h 8080:8080
+kubectl port-forward vinnsl-storage-service-56ff7ddddf-994l9 8081:8081
+kubectl port-forward vinnsl-nn-worker-7dfd5bb6f4-55h4s 8084:8084
+kubectl port-forward vinnsl-nn-worker-python-576fbbf685-ttk58 4000:4000
+```
 
+
+The UI is now available under: localhost or 127.0.0.1
 
 
 
