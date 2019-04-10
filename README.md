@@ -75,9 +75,7 @@ kubectl port-forward vinnsl-nn-worker-7dfd5bb6f4-55h4s 8084:8084
 kubectl port-forward vinnsl-nn-worker-python-576fbbf685-ttk58 4000:4000
 ```
 
-
-The UI is now available under: localhost or 127.0.0.1
-
+You can now open your browser: https://localhost/#/ and should see the Vinnsl-NN-UI
 
 
 
