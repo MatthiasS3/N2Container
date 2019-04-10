@@ -40,6 +40,8 @@ kubectl apply -f vinnsl-nn-ui.yaml
 kubectl apply -f mongo-storage-service.yaml
 kubectl apply -f vinnsl-storage-service.yaml
 kubectl apply -f vinnsl-nn-worker.yaml
+kubectl apply -f vinnsl-nn-worker-python.yaml
+kubectl apply -f vinnsl-nn-worker-js.yaml
 ```
 
 ### Enable Service Discovery with Ingress
