@@ -66,7 +66,9 @@ kubectl get pods
 It should return something like this:
 ![Pods Screenshot](getpods.png)
 
-The following commands will enable you to call the services. Please notice that you will get different numbers after the names, so copy your own names.
+The following commands will enable you to call the services. 
+- Please notice that you will get different numbers after the names, so copy your own names.
+- Please execute each command in a new tab and keep it open
 ```
 kubectl port-forward vinnsl-nn-ui-deploy-6584cf995-xpmtr 80:8083
 kubectl port-forward vinnsl-service-759d4587bb-mpb4h 8080:8080
