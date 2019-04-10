@@ -63,3 +63,10 @@ This commands opens the dashboard and lets you check the status of the services.
 ```
 kubectl get pods
 ```
+
+- Docker Edge (Kubernetes enabled)![docker-kub](getpods.png)
+
+
+
+
+
