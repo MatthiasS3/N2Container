@@ -61,7 +61,8 @@ You can use Postman to send the requests. https://www.getpostman.com
 2. Now you can see that a new neural network was created
 ![UI](img/2.png)
 
-3. Copy the id of the neural network and send a put request with the vinnsl definition to: localhost/vinnsl/<id>/definition
+3. Copy the id of the neural network and send a put request with the vinnsl definition to: localhost/vinnsl/id/definition
+(Please replace id with the id of your neural network as shown in the picture)
 ![Postman](img/3.png)
   
 4. Now you can start the training
