@@ -50,8 +50,9 @@ This could not be tested, as billing must be enabled and EKS is not included in 
 
 
 
-
-
 ## Usage
 
-To Create a new Neural Network you have to send a Post request
+To Create a new Neural Network you have to send the vinnsl data to the vinnsl-service container.
+You can use Postman to send the request. https://www.getpostman.com
+
+
