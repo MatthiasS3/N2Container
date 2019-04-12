@@ -107,4 +107,6 @@ kubectl port-forward vinnsl-nn-worker-tensorflow-js-55b95f7494-69zq8 3000:3000
 
 You can now open your browser: http://localhost:8083/ and should see the Vinnsl-NN-UI
 
+
+
  

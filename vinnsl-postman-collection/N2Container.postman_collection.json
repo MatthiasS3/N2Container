@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "28a68309-c3b0-46a7-a068-c743bd89fb76",
+		"name": "N2Container",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IRIS",
+			"item": [
+				{
+					"name": "Create new Network (Description)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<vinnsl>\n  <description>\n    <identifier><!-- will be generated --></identifier>\n    <metadata>\n      <paradigm>classification</paradigm>\n      <name>Backpropagation Classification</name>\n      <description>Iris Classification Example</description>\n      <version>\n        <major>1</major>\n        <minor>0</minor>\n      </version>\n    </metadata>\n    <creator>\n      <name>Ugur Yürük</name>\n      <contact>ronald.fisher@institution.com</contact>\n    </creator>\n    <problemDomain>\n      <propagationType type=\"feedforward\">\n        <learningType>supervised</learningType>\n      </propagationType>\n      <applicationField>Classification</applicationField>\n      <networkType>Backpropagation</networkType>\n      <problemType>Classifiers</problemType>\n    </problemDomain>\n    <endpoints>\n      <train>true</train>\n      <retrain>true</retrain>\n      <evaluate>true</evaluate>\n    </endpoints>\n    <structure>\n\t   <input>\n\t    <ID>Input1</ID>\n\t    <size>\n\t    \t<min>4</min>\n\t    \t<max>4</max>\n\t    </size>\n\t    <activation>sigmoid</activation>\n\t   </input>\n\t   <hidden>\n\t    <ID>Hidden1</ID>\n\t    <size>\n\t    \t<min>3</min>\n\t    \t<max>3</max>\n\t    </size>\n\t   </hidden>\n\t   <output>\n\t    <ID>Output1</ID>\n\t    <size>\n\t    \t<min>3</min>\n\t    \t<max>3</max>\n\t    </size>\n\t   </output>\n\t </structure>\n\t <parameters>\n\t \t<!--<valueparameter>learningrate</valueparameter>\n\t \t<valueparameter>biasInput</valueparameter>\n\t \t<valueparameter>biasHidden</valueparameter>\n\t \t<valueparameter>momentum</valueparameter>\n\t \t<comboparameter>ativationfunction</valueparameter>\n\t \t<valueparameter>threshold</valueparameter>-->\n\t </parameters>\n\t <data>\n\t \t<description>iris txt file with 3 classifications, 4 input vars</description>\n\t \t<tabledescription>no input as table possible</tabledescription>\n\t \t<filedescription>CSV file</filedescription>\n\t </data>\n  </description>\n</vinnsl>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vinnsl/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vinnsl",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Definition to Vinnsl Network",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<definition>\n<identifier><!-- will be generated --></identifier>\n<metadata>\n  <paradigm>classification</paradigm>\n  <name>Backpropagation Classification</name>\n  <description>Iris Classification Example</description>\n  <version>\n    <major>1</major>\n    <minor>0</minor>\n  </version>\n</metadata>\n<creator>\n  <name>Ronald Fisher</name>\n  <contact>ronald.fisher@institution.com</contact>\n</creator>\n<problemDomain>\n  <propagationType type=\"feedforward\">\n    <learningType>supervised</learningType>\n  </propagationType>\n  <applicationField>Classification</applicationField>\n  <networkType>Backpropagation</networkType>\n  <problemType>Classifiers</problemType>\n</problemDomain>\n<endpoints>\n  <train>true</train>\n</endpoints>\n<executionEnvironment>\n\t<serial>true</serial>\n</executionEnvironment>\n<structure>\n   <input>\n    <ID>Input1</ID>\n    <size>4</size>\n     <parameters>\n\t \t<valueparameter name=\"activationfunction\">sigmoid</valueparameter>\n\t </parameters>\n   </input>\n   <hidden>\n    <ID>Hidden1</ID>\n    <size>3</size>\n   </hidden>\n \n   <output>\n    <ID>Output1</ID>\n    <size>3</size>\n   </output>\n   <connections>\n   \t<!--<fullconnected>\n   \t\t<fromblock>Input1</fromblock>\n   \t\t<toblock>Hidden1</toblock>\n   \t\t<fromblock>Hidden1</fromblock>\n   \t\t<toblock>Output1</toblock>\n   \t</fullconnected>-->\n   </connections>\n </structure>\n <resultSchema>\n \t<instance>true</instance>\n \t<training>true</training>\n </resultSchema>\n <parameters>\n \t<valueparameter name=\"learningrate\">0.1</valueparameter>\n\t<comboparameter name=\"activationfunction\">tanh</comboparameter>\n\t<valueparameter name=\"iterations\">1000</valueparameter>\n\t<valueparameter name=\"seed\">6</valueparameter>\n\t<valueparameter name=\"labelIndex\">4</valueparameter>\n </parameters>\n <data>\n \t<description>iris txt file with 3 classifications, 4 input vars</description>\n\t<dataSchemaID>name/iris.txt</dataSchemaID>\n </data>\n</definition>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vinnsl/5cb0edf64e23d10001ed32e9/definition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vinnsl",
+								"5cb0edf64e23d10001ed32e9",
+								"definition"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MNIST",
+			"item": [
+				{
+					"name": "Create new Network (Description)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<vinnsl>\n  <description>\n    <identifier><!-- will be generated --></identifier>\n    <metadata>\n      <paradigm>Deep Learning</paradigm>\n      <name>MNIST Digit Recognition</name>\n      <description>MNIST Digit Recognition Example</description>\n      <version>\n        <major>1</major>\n        <minor>0</minor>\n      </version>\n    </metadata>\n    <creator>\n      <name>Author</name>\n      <contact>author@institution.com</contact>\n    </creator>\n    <problemDomain>\n      <propagationType type=\"feedforward\">\n        <learningType>supervised</learningType>\n      </propagationType>\n      <applicationField>DeepLearning</applicationField>\n      <networkType>Backpropagation</networkType>\n      <problemType>DeepLearning</problemType>\n    </problemDomain>\n    <endpoints>\n      <train>true</train>\n      <retrain>true</retrain>\n      <evaluate>true</evaluate>\n    </endpoints>\n    <structure>\n\t   <input>\n\t    <ID>Input1</ID>\n\t    <size>\n\t    \t<min>784</min>\n\t    \t<max>784</max>\n\t    </size>\n\t   </input>\n\t   <hidden>\n\t    <ID>DenseLayer</ID>\n\t    <size>\n\t    \t<min>1000</min>\n\t    \t<max>1000</max>\n\t    </size>\n\t   </hidden>\n\t   <output>\n\t    <ID>Output1</ID>\n\t    <size>\n\t    \t<min>10</min>\n\t    \t<max>10</max>\n\t    </size>\n\t   </output>\n\t </structure>\n\t <parameters>\n\t </parameters>\n\t <data>\n\t </data>\n  </description>\n</vinnsl>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vinnsl/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vinnsl",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Definition to Vinnsl Network",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<definition>\n<identifier><!-- will be generated --></identifier>\n<metadata>\n  <paradigm>Deep Learning</paradigm>\n  <name>MNIST Digit Recognition</name>\n  <description>MNIST Digit Recognition Example</description>\n  <version>\n    <major>1</major>\n    <minor>0</minor>\n  </version>\n</metadata>\n<creator>\n  <name>Author</name>\n  <contact>author@institution.com</contact>\n</creator>\n<problemDomain>\n  <propagationType type=\"feedforward\">\n    <learningType>supervised</learningType>\n  </propagationType>\n  <applicationField>Deep Learning</applicationField>\n  <networkType>Backpropagation</networkType>\n  <problemType>Deep Learning</problemType>\n</problemDomain>\n<endpoints>\n  <train>true</train>\n</endpoints>\n<executionEnvironment>\n\t<serial>true</serial>\n</executionEnvironment>\n<structure>\n   <input>\n    <ID>Convolutional1</ID>\n    <size>784</size>\n   </input>\n   <hidden>\n    <ID>Convolutional2</ID>\n    <size>32</size>\n   </hidden>\n   <hidden>\n    <ID>MaxPooling1</ID>\n    <size>2</size>\n   </hidden>\n   <hidden>\n    <ID>Convolutional3</ID>\n    <size>64</size>\n   </hidden>\n   <hidden>\n    <ID>Convolutional4</ID>\n    <size>64</size>\n   </hidden>\n   <hidden>\n    <ID>MaxPooling2</ID>\n    <size>2</size>\n   </hidden>\n   <hidden>\n    <ID>Flatten</ID>\n    <size>1</size>\n   </hidden>\n   <hidden>\n    <ID>DropOut1</ID>\n    <size>25</size>\n   </hidden>\n   <hidden>\n    <ID>Denselayer1</ID>\n    <size>512</size>\n   </hidden>\n   <hidden>\n    <ID>DropOut2</ID>\n    <size>50</size>\n   </hidden>\n   <output>\n    <ID>Output1</ID>\n    <size>10</size>\n   </output>\n   \n   <connections>\n   \t<!--<fullconnected>\n   \t\t<fromblock>Input1</fromblock>\n   \t\t<toblock>DenseLayer</toblock>\n   \t\t<fromblock>DenseLayer</fromblock>\n   \t\t<toblock>Output1</toblock>\n   \t</fullconnected>-->\n   </connections>\n </structure>\n <resultSchema>\n \t<instance>true</instance>\n \t<training>true</training>\n </resultSchema>\n <parameters>\n \t<valueparameter name=\"learningrate\">0.006</valueparameter>\n\t<valueparameter name=\"epochs\">1</valueparameter>\n\t<valueparameter name=\"batchsize\">130</valueparameter>\n\t<comboparameter name=\"activationfunction\">relu</comboparameter>\n\t<valueparameter name=\"seed\">123</valueparameter>\n\t<valueparameter name=\"momentum\">0.9</valueparameter>\n\t<comboparameter name=\"dl4jTrainerClass\">at.ac.univie.a00908270.nnworker.dl4j.Dl4jMnistNetworkTrainer</comboparameter>\n </parameters>\n <data>\n \t<description>DL4J MNIST Dataset</description>\n </data>\n</definition>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vinnsl/5cb0ef2f4e23d10001ed32eb/definition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vinnsl",
+								"5cb0ef2f4e23d10001ed32eb",
+								"definition"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WINE",
+			"item": [
+				{
+					"name": "Create new Network (Description)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<vinnsl>\n  <description>\n    <identifier><!-- will be generated --></identifier>\n    <metadata>\n      <paradigm>classification</paradigm>\n      <name>Backpropagation Classification</name>\n      <description>Wine Classification Example</description>\n      <version>\n        <major>1</major>\n        <minor>0</minor>\n      </version>\n    </metadata>\n    <creator>\n      <name>Yürük</name>\n      <contact>yürük@institution.com</contact>\n    </creator>\n    <problemDomain>\n      <propagationType type=\"feedforward\">\n        <learningType>supervised</learningType>\n      </propagationType>\n      <applicationField>Classification</applicationField>\n      <networkType>Backpropagation</networkType>\n      <problemType>Classifiers</problemType>\n    </problemDomain>\n    <endpoints>\n      <train>true</train>\n      <retrain>true</retrain>\n      <evaluate>true</evaluate>\n    </endpoints>\n    <structure>\n\t   <input>\n\t    <ID>Input1</ID>\n\t    <size>\n\t    \t<min>2</min>\n\t    \t<max>2</max>\n\t    </size>\n\t   </input>\n\t   <hidden>\n\t    <ID>Hidden1</ID>\n\t    <size>\n\t    \t<min>3</min>\n\t    \t<max>3</max>\n\t    </size>\n\t   </hidden>\n\t   <hidden>\n\t    <ID>Hidden2</ID>\n\t    <size>\n\t    \t<min>3</min>\n\t    \t<max>3</max>\n\t    </size>\n\t   </hidden>\n\t   <output>\n\t    <ID>Output1</ID>\n\t    <size>\n\t    \t<min>2</min>\n\t    \t<max>2</max>\n\t    </size>\n\t   </output>\n\t </structure>\n\t <!--<parameters>\n\t \t<valueparameter>learningrate</valueparameter>\n\t \t<valueparameter>biasInput</valueparameter>\n\t \t<valueparameter>biasHidden</valueparameter>\n\t \t<valueparameter>momentum</valueparameter>\n\t \t<comboparameter>ativationfunction</comboparameter>\n\t \t<valueparameter>threshold</valueparameter>\n\t </parameters>-->\n\t <data>\n\t \t<description>wine csv file with 2 classifications, \n\t \t2 input vars</description>\n\t \t<tabledescription>no input as table possible</tabledescription>\n\t \t<filedescription>CSV file</filedescription>\n\t </data>\n  </description>\n</vinnsl>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vinnsl/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vinnsl",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Definition to Vinnsl Network",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<definition>\n<identifier><!-- will be generated --></identifier>\n<metadata>\n  <paradigm>classification</paradigm>\n   <name>Backpropagation Classification</name>\n   <description>Wine Classification Example</description>\n  <version>\n    <major>1</major>\n    <minor>0</minor>\n  </version>\n</metadata>\n<creator>\n  <name>Nussbaum</name>\n  <contact>nussbaum@institution.com</contact>\n</creator>\n<problemDomain>\n  <propagationType type=\"feedforward\">\n    <learningType>supervised</learningType>\n  </propagationType>\n  <applicationField>Classification</applicationField>\n  <networkType>Backpropagation</networkType>\n  <problemType>Classifiers</problemType>\n</problemDomain>\n<endpoints>\n  <train>true</train>\n</endpoints>\n<executionEnvironment>\n\t<serial>true</serial>\n</executionEnvironment>\n<structure>\n   <input>\n    <ID>Denselayer1</ID>\n    <size>10</size>\n   </input>\n   <hidden>\n    <ID>Denselayer2</ID>\n    <size>8</size>\n   </hidden>\n   <hidden>\n    <ID>Denselayer3</ID>\n    <size>6</size>\n   </hidden>\n    <hidden>\n    <ID>Denselayer4</ID>\n    <size>4</size>\n   </hidden>\n    <hidden>\n    <ID>Denselayer5</ID>\n    <size>2</size>\n   </hidden>\n   <output>\n    <ID>Output1</ID>\n    <size>3</size>\n   </output>\n   <connections>\n   \t<!--<fullconnected>\n   \t\t<fromblock>Input1</fromblock>\n   \t\t<toblock>Hidden1</toblock>\n   \t\t<fromblock>Hidden1</fromblock>\n   \t\t<toblock>Output1</toblock>\n   \t</fullconnected>-->\n   </connections>\n </structure>\n <resultSchema>\n \t<instance>true</instance>\n \t<training>true</training>\n </resultSchema>\n <parameters>\n \t<valueparameter name=\"learningrate\">0.001</valueparameter>\n\t<comboparameter name=\"activationfunction\">relu</comboparameter>\n\t<valueparameter name=\"iterations\">3000</valueparameter>\n\t<valueparameter name=\"seed\">6</valueparameter>\n </parameters>\n <data>\n \t<description>wine csv file with 2 classifications,\n    2 input vars</description>\n\t<dataSchemaID>name/wines.csv</dataSchemaID>\n </data>\n</definition>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vinnsl/5cb0f0f74e23d10001ed32ed/definition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vinnsl",
+								"5cb0f0f74e23d10001ed32ed",
+								"definition"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LSTM",
+			"item": [
+				{
+					"name": "Create new Network (Description)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<vinnsl>\n  <description>\n    <identifier><!-- will be generated --></identifier>\n    <metadata>\n      <paradigm>Deep Learning</paradigm>\n      <name>LSTM (Long Short Term Memory) Text Generation</name>\n      <description>LSTM (Long Short Term Memory) Text Generation</description>\n      <version>\n        <major>1</major>\n        <minor>0</minor>\n      </version>\n    </metadata>\n    <creator>\n      <name>Author</name>\n      <contact>author@institution.com</contact>\n    </creator>\n    <problemDomain>\n      <propagationType type=\"feedforward\">\n        <learningType>supervised</learningType>\n      </propagationType>\n      <applicationField>DeepLearning</applicationField>\n      <networkType>Backpropagation</networkType>\n      <problemType>DeepLearning</problemType>\n    </problemDomain>\n    <endpoints>\n      <train>true</train>\n      <retrain>true</retrain>\n      <evaluate>true</evaluate>\n    </endpoints>\n    <structure>\n\t   <input>\n\t    <ID>LSTM1</ID>\n\t    <size>\n\t    \t<min>100</min>\n\t    \t<max>100</max>\n\t    </size>\n\t   </input>\n\t   <hidden>\n\t    <ID>LSTM2</ID>\n\t    <size>\n\t    \t<min>50</min>\n\t    \t<max>50</max>\n\t    </size>\n\t   </hidden>\n\t   <output>\n\t    <ID>Dense1</ID>\n\t    <size>\n\t    \t<min>0</min>\n\t    \t<max>0</max>\n\t    </size>\n\t    <!--size 0, because the output size depend on character set length.. \n        its determined dynamically by the entered text-->\n\t   </output>\n\t </structure>\n\t <parameters>\n\t </parameters>\n\t <data>\n\t </data>\n  </description>\n</vinnsl>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vinnsl/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vinnsl",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Definition to Vinnsl Network",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<definition>\n<identifier><!-- will be generated --></identifier>\n<metadata>\n  <paradigm>Deep Learning</paradigm>\n    <name>LSTM (Long Short Term Memory) Text Generation</name>\n      <description>LSTM (Long Short Term Memory) Text Generation</description>\n  <version>\n    <major>1</major>\n    <minor>0</minor>\n  </version>\n</metadata>\n<creator>\n  <name>Author</name>\n  <contact>author@institution.com</contact>\n</creator>\n<problemDomain>\n  <propagationType type=\"feedforward\">\n    <learningType>supervised</learningType>\n  </propagationType>\n  <applicationField>Deep Learning</applicationField>\n  <networkType>Backpropagation</networkType>\n  <problemType>Deep Learning</problemType>\n</problemDomain>\n<endpoints>\n  <train>true</train>\n</endpoints>\n<executionEnvironment>\n\t<serial>true</serial>\n</executionEnvironment>\n<structure>\n   <input>\n    <ID>LSTM1</ID>\n    <size>200</size>\n   </input>\n   <hidden>\n    <ID>LSTM2</ID>\n    <size>150</size>\n   </hidden>\n   <output>\n    <ID>Dense1</ID>\n    <size>1</size>\n    <!--size 1, because the output size depend on character set length.. \n        its determined dynamically by the entered text-->\n   </output>\n   \n   <connections>\n   \t<!--<fullconnected>\n   \t\t<fromblock>Input1</fromblock>\n   \t\t<toblock>DenseLayer</toblock>\n   \t\t<fromblock>DenseLayer</fromblock>\n   \t\t<toblock>Output1</toblock>\n   \t</fullconnected>-->\n   </connections>\n </structure>\n <resultSchema>\n \t<instance>true</instance>\n \t<training>true</training>\n </resultSchema>\n <parameters>\n \t<valueparameter name=\"learningrate\">0.01</valueparameter>\n\t<valueparameter name=\"epochs\">100</valueparameter>\n\t<valueparameter name=\"batchsize\">128</valueparameter>\n\t<comboparameter name=\"activationfunction\">softmax</comboparameter>\n\t<valueparameter name=\"seed\">123</valueparameter>\n\t<valueparameter name=\"momentum\">0.9</valueparameter>\n </parameters>\n <data>\n \t<description>LSTM Dataset</description>\n </data>\n</definition>"
+						},
+						"url": {
+							"raw": "http://localhost:8080/vinnsl/5ca90c30ee52a5000160d21c/definition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vinnsl",
+								"5ca90c30ee52a5000160d21c",
+								"definition"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
