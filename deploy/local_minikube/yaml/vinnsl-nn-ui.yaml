@@ -1,0 +1,33 @@
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: vinnsl-nn-ui-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vinnsl-nn-ui-deploy
+    spec:
+      containers:
+        - name: vinnsl-nn-ui-deploy
+          image: 'ugizzzz/vinnsl-nn-ui-deploy:13'
+          ports:
+            - containerPort: 8083
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vinnsl-nn-ui-deploy
+  labels:
+    name: vinnsl-nn-ui-deploy
+spec:
+  ports:
+    - port: 8083
+      targetPort: 8083
+      protocol: TCP
+  selector:
+    app: vinnsl-nn-ui-deploy
+  type: NodePort

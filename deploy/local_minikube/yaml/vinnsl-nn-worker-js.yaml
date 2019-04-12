@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: vinnsl-nn-worker-tensorflow-js
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vinnsl-nn-worker-tensorflow-js
+    spec:
+      containers:
+        - name: vinnsl-nn-worker-tensorflow-js
+          image: ugizzzz/vinnsl-nn-worker-tensorflow-js:23
+          ports:
+            - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vinnsl-nn-worker-tensorflow-js-service
+  labels:
+    name: vinnsl-nn-worker-tensorflow-js-service
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: vinnsl-nn-worker-tensorflow-js
+  type: NodePort

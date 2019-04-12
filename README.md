@@ -1,83 +1,49 @@
-# N2Container
-# Setting up on local machine with minikube
-## Prerequisites
+# N2Container  
+Is an extension of Container Based Execution Stack for Neural Networks (ConbexNN). 
+This project features web services to train and evaluate neural networks using the Kubernetes container orchestration with Java, TensorFlow and TensorFlow Node.js based microservice architecture. 
+<!---
+## Demo VM
+See the project in Action by running a virtual machine. It comes preconfigured with Kubernetes running all necessary ConbexNN services and a neural network training set for testing.
 
-- minikube installed (https://github.com/kubernetes/minikube/releases)
-- kubectl installed (https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl)
+<!---![VM Screenshot](deploy/vm/img/vm_small.jpg)
 
-## Set up
+<!---You can try out the RESTful API and GUI.
 
-### Start Cluster
-
-```
-minikube start
-```
-
-### Check status
-
-```
-minikube status
-```
-
-Should return 
-
-```
-minikube: Running
-cluster: Running
-kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.102
-```
-
-Services can be reached at this ip address after successful deployment
-
-### Setup Services
-
-cd into folder /yaml/
-
-```bash
-kubectl apply -f mongo_small.yaml
-kubectl apply -f vinnsl-service.yaml
-kubectl apply -f vinnsl-nn-ui.yaml
-kubectl apply -f mongo-storage-service.yaml
-kubectl apply -f vinnsl-storage-service.yaml
-kubectl apply -f vinnsl-nn-worker.yaml
-kubectl apply -f vinnsl-nn-worker-python.yaml
-kubectl apply -f vinnsl-nn-worker-js.yaml
-```
-
-### Enable Service Discovery with Ingress
-
-```
-kubectl apply -f ingress.yaml
-```
-
-### Check status with Dashboard
-
-```
-minikube dashboard
-```
-
-This commands opens the dashboard and lets you check the status of the services. This can take a few minutes.
-
-## Usage
-
-```
-kubectl get pods
-```
-It should return something like this:
-![Pods Screenshot](getpods.png)
-
-The following commands will enable you to call the services. 
-- Please notice that you will get different numbers after the names, so copy your own names.
-- Please execute each command in a new tab and keep it open
-```
-kubectl port-forward vinnsl-nn-ui-deploy-6584cf995-xpmtr 80:8083
-kubectl port-forward vinnsl-service-759d4587bb-mpb4h 8080:8080
-kubectl port-forward vinnsl-storage-service-56ff7ddddf-994l9 8081:8081
-kubectl port-forward vinnsl-nn-worker-7dfd5bb6f4-55h4s 8084:8084
-kubectl port-forward vinnsl-nn-worker-python-576fbbf685-ttk58 4000:4000
-```
-
-You can now open your browser: https://localhost/#/ and should see the Vinnsl-NN-UI
+<!---* See [instructions here](/deploy/vm/) --->
 
 
 
+## Setup 
+
+### Local
+
+#### Setup on local machine with Docker Edge
+
+Preferred if you have a Docker hypervisor compatible machine
+
+You can setup and run this project with Docker Edge and Kubernetes enabled
+See [instructions here](/deploy/local_dockerce/)
+
+#### Setup on local machine with Minikube
+
+You can setup and run this project with the Minikube VM
+See [instructions here](/deploy/local_minikube/)
+
+<!---
+### Cloud. - has not been set up yet -
+
+#### Setup in Google Cloud
+
+You can setup and run this project in Google Kubernetes Engine.
+See [instructions here](/deploy/cloud/google/)
+
+#### Setup in Microsoft Azure
+
+You can setup and run this project in Microsoft Azure Kubernetes Service.
+See [instructions here](/deploy/cloud/azure/)
+
+#### Setup in Amazon EKS
+
+You can setup and run this project in Microsoft EKS
+This could not be tested, as billing must be enabled and EKS is not included in the AWS student program. Read the [amazon Documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) on how to deploy Kubernetes Clusters.
+--->
