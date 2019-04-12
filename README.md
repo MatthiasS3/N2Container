@@ -53,6 +53,18 @@ This could not be tested, as billing must be enabled and EKS is not included in 
 ## Usage
 
 To Create a new Neural Network you have to send the vinnsl data to the vinnsl-service container.
-You can use Postman to send the request. https://www.getpostman.com
+You can use Postman to send the requests. https://www.getpostman.com
+
+1. You need to send a post reqest to localhost:8080/vinnsl with the description of the neural network. Copy our vinnsl-description into the body section of the request.
+![Postman](img/1.png)
+
+2. Now you can see that a new neural network was created
+![UI](img/2.png)
+
+3. Copy the id of the neural network and send a put request with the vinnsl definition to: localhost/vinnsl/<id>/definition
+![Postman](img/3.png)
+  
+4. Now you can start the training
+![UI](img/4.png)
 
 
