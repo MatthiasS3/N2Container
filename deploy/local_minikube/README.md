@@ -64,7 +64,7 @@ This commands opens the dashboard and lets you check the status of the services.
 kubectl get pods
 ```
 It should return something like this:
-![Pods Screenshot](img/getpods.png)
+![Pods Screenshot](img/get_pods.png)
 
 The following commands will enable you to call the services. 
 - Please notice that you will get different numbers after the names, so copy your own names.
