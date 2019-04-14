@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: vinnsl-nn-ui-deploy
-          image: 'ugizzzz/vinnsl-nn-ui-deploy:13'
+          image: 'ugizzzz/vinnsl-nn-ui-deploy:14'
           ports:
             - containerPort: 8083
 

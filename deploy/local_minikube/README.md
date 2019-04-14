@@ -31,7 +31,7 @@ Services can be reached at this ip address after successful deployment
 
 ### Setup Services
 
-cd into folder /yaml/
+cd into folder /deploy/local_minikube/yaml
 
 ```bash
 kubectl apply -f mongo_small.yaml
