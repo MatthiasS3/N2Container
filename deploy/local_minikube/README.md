@@ -70,11 +70,12 @@ The following commands will enable you to call the services.
 - Please notice that you will get different numbers after the names, so copy your own names.
 - Please execute each command in a new tab and keep it open
 ```
-kubectl port-forward vinnsl-nn-ui-deploy-6584cf995-xpmtr 8083:8083
-kubectl port-forward vinnsl-service-759d4587bb-mpb4h 8080:8080
-kubectl port-forward vinnsl-storage-service-56ff7ddddf-994l9 8081:8081
+kubectl port-forward vinnsl-nn-ui-deploy-6bcb4fc9c6-6l6tf 8083:8083
 kubectl port-forward vinnsl-nn-worker-7dfd5bb6f4-55h4s 8084:8084
 kubectl port-forward vinnsl-nn-worker-python-576fbbf685-ttk58 4000:4000
+kubectl port-forward vinnsl-nn-worker-tensorflow-js-75859cbd5d-n45l5 3000:3000
+kubectl port-forward vinnsl-service-56968789c7-6vg8t 8080:8080
+kubectl port-forward vinnsl-storage-service-56ff7ddddf-994l9 8081:8081
 ```
 
 You can now open your browser: https://localhost:8083/ and should see the Vinnsl-NN-UI
