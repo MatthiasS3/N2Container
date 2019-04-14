@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: vinnsl-nn-worker-python
-        image: matthias3/vinnsl-nn-worker-python:8
+        image: matthias3/vinnsl-nn-worker-python:1
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
