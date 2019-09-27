@@ -48,18 +48,19 @@ You can setup and run this project in Microsoft EKS
 This could not be tested, as billing must be enabled and EKS is not included in the AWS student program. Read the [amazon Documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) on how to deploy Kubernetes Clusters.
 --->
 
+<!---
 ### VirtualBox Image
 Downlaod VirtualBox Image [here](https://test.com) (image size: 18.5 GB)
 #### Import Image in VirtualBox
 - erklären mit Bilder
 #### Start N2Container Application
-
+<!---
 #### Open Browser
 Enter: http:localhost:8083
-
+<!---
 #### Postman
 Postman is installed and configured.
-
+<!---
 mehr information.
 
 
