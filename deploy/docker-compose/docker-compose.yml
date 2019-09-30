@@ -1,0 +1,83 @@
+version: "3"
+services:
+  proxy:
+    build: ./proxy
+    container_name: haproxy
+    ports:
+      - "80:80"
+  web1:
+    image: ugizzzz/vinnsl-nn-ui:1000
+    #build: ../IntelliJ/workspace/vinnsl-nn-ui/frontend
+    container_name: web1
+    ports:
+      - "8083:8083"
+#  web2:
+#    image: dockercloud/hello-world
+#    container_name: web2
+#    ports:
+#      - "82:80"
+  #bis hier hats funktioniert
+
+  vinnsl-service:
+    image: ugizzzz/vinnsl-service:20 #letzte version 22
+    container_name: vinnsl-service
+    ports:
+      - "8080:8080"
+
+  #DB###################
+  mongo:
+    container_name: mongo
+    image: mongo:3.6
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    ports:
+      - "27018:27017"
+    command:
+      - mongod
+      - "--bind_ip"
+      - 0.0.0.0
+      - "--smallfiles"
+      - "--noprealloc"
+
+  mongo-storage:
+    container_name: mongo-storage
+    image: mongo:3.6
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    ports:
+      - "27020:27017"
+    command:
+      - mongod
+      - "--bind_ip"
+      - 0.0.0.0
+      - "--noprealloc"
+
+  vinnsl-storage-service:
+    image: ugizzzz/vinnsl-storage-service:2
+    container_name: vinnsl-storage-service
+    ports:
+    - "8081:8081"
+
+ ################################
+  vinnsl-nn-worker-tensorflow-js:
+    image: ugizzzz/vinnsl-nn-worker-tensorflow-js:32
+    #build: ../IntelliJ/workspace/vinnsl-nn-worker-tensorflow
+    container_name: vinnsl-nn-worker-tensorflow-js
+    ports:
+      - "3000:3000"
+
+  vinnsl-nn-worker-python:
+    image: matthias3/vinnsl-nn-worker-python:13
+    container_name: vinnsl-nn-worker-python
+    #build: ../vinnsl-nn-worker-python
+    ports:
+      - "4000:4000"
+
+  vinnsl-nn-worker:
+    image: ugizzzz/vinnsl-nn-worker-dl4j:1
+    #build: ../IntelliJ/workspace/vinnsl-nn-worker
+    container_name: vinnsl-nn-worker
+    ports:
+     - "8084:8084"
